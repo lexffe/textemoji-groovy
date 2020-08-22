@@ -1,0 +1,25 @@
+plugins {
+    id 'groovy'
+}
+
+group 'xyz.lexffe.textemoji'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.javalin:javalin:3.9.1'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.5'
+    testImplementation group: 'junit', name: 'junit', version: '4.13'
+}
+
+task(runMain, dependsOn: 'classes', type: JavaExec) {
+    main = 'Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
